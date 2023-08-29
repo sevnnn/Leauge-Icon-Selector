@@ -19,7 +19,6 @@ class LCUCommunicator:
         disable_warnings(InsecureRequestWarning)
         self.host = app.config.get("LCU_HOST")
         self.auth = app.config.get("LCU_AUTH")
-        self.owned_icons: List[IconDTO]
 
     def __api_get_request(
         self, endpoint: str, query_params: Optional[dict] = None
@@ -51,7 +50,6 @@ class LCUCommunicator:
                 continue
 
             icons_list.append(IconDTO(icon_data["itemId"], icon_data["name"]))
-        self.owned_icons = icons_list
 
         return icons_list
 
