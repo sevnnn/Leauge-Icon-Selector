@@ -1,0 +1,6 @@
+.vscode/
+
+poetry.lock
+jsconfig.json
+
+*.pyc

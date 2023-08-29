@@ -1,0 +1,28 @@
+{% extends 'base.jinja' %}
+
+{% block additional_headers %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='icon-selector.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<div id="icons">
+    {% for icon in owned_icons %}
+    <img src="/api/icon/{{ icon.item_id }}" alt="{{ icon.item_id }}" title="{{ icon.name }}" />
+
+    {% endfor %}
+</div>
+<div id="current-icon">
+    <img src="/api/icon/{{ current_icon.item_id }}" alt="{{ current_icon.name }}" />
+    <p>{{ current_icon.name }}</p>
+</div>
+<div id="buttons">
+    <button id="save-button" type="button">Set Summoner Icon</button>
+    <button id="randomize-button" type="button">Select Random Icon</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="{{ url_for('static', filename='icon-selector.js') }}"></script>
+{% endblock %}
