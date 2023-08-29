@@ -7,11 +7,12 @@
 {% endblock %}
 
 {% block body %}
-
+<div id="searchbar">
+    <input type="text" placeholder="Search for icons..." />
+</div>
 <div id="icons">
     {% for icon in owned_icons %}
     <img src="/api/icon/{{ icon.item_id }}" alt="{{ icon.item_id }}" title="{{ icon.name }}" />
-
     {% endfor %}
 </div>
 <div id="current-icon">

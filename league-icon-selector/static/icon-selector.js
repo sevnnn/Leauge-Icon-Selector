@@ -47,5 +47,34 @@ $("#buttons #save-button").on("click", function () {
     setTimeout(() => {
         saveButton.text("Set Summoner Icon");
         saveButton.css("padding", "2% 6%");
-    }, 3000)
+    }, 3000);
 });
+
+$("#searchbar input").on("keyup", function (event) {
+    filterIcons($("#searchbar input").val().toLowerCase());
+});
+
+
+const filterIcons = (textToSearch) => {
+    if (textToSearch === "") {
+        $("#icons img").each(function () {
+            $(this).show();
+        });
+    }
+
+    $("#icons img").each(function () {
+        if (!$(this).attr("title").toLowerCase().includes(textToSearch)) {
+            $(this).fadeOut();
+
+            return;
+        }
+
+        if ($(this).css("display") === "none") {
+            $(this).fadeIn();
+
+            return;
+        }
+
+        $(this).show();
+    });
+};
