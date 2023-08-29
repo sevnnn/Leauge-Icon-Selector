@@ -1,4 +1,5 @@
 from flask import Blueprint, Response, current_app, render_template
+
 from ..extensions.LCUCommunicator.lcu_communicator import LCUCommunicator
 
 bp = Blueprint("frontend", __name__)

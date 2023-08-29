@@ -2,6 +2,7 @@ from io import BytesIO
 from typing import Tuple
 
 from flask import Blueprint, Response, current_app, send_file
+
 from ..extensions.LCUCommunicator.lcu_communicator import LCUCommunicator
 
 bp = Blueprint("api", __name__, url_prefix="/api")
